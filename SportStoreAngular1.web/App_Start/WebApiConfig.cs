@@ -19,6 +19,8 @@ namespace SportStoreAngular1.web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            //removing the ghastly xml formatter for json only responses
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

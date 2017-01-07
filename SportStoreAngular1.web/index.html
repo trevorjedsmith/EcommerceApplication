@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-<html>
-<head ng-app="sportsStore">
+<html ng-app="sportsStore">
+<head>
     <title>SportStore</title>
 	<meta charset="utf-8" />
     <!--Scripts-->
@@ -16,10 +16,12 @@
 
     <script>
         //this is creating a new angular module with no di 
+        //set module
         angular.module("sportsStore", []);
     </script>
+    <script src="Scripts/app/sportsStore.js"></script>
 </head>
-<body>
+<body ng-controller="sportsStoreCtrl">
     <div class="navbar navbar-default">
         <a class="navbar-brand" href="#">SPORTS STORE</a>
     </div>
@@ -28,7 +30,15 @@
             Categories go here
         </div>
         <div class="col-xs-8">
-            Products go here
+            <div class="well" ng-repeat="item in data.products">
+                <h3>
+                    <strong>{{item.name}}</strong>
+                    <span class="pull-right label label-primary">
+                        {{item.price | currency}}
+                    </span>
+                </h3>
+                <span class="lead">{{item.description}}</span>
+            </div>
         </div>
     </div>
 </body>

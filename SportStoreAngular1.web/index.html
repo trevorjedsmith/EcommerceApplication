@@ -17,29 +17,20 @@
     <script>
         //this is creating a new angular module with no di 
         //set module
-        angular.module("sportsStore", []);
+        angular.module("sportsStore", ["customFilters"]);
     </script>
     <script src="Scripts/app/sportsStore.js"></script>
+    <script src="Scripts/app/customFilters.js"></script>
+    <script src="Scripts/app/productListController.js"></script>
 </head>
 <body ng-controller="sportsStoreCtrl">
     <div class="navbar navbar-default">
         <a class="navbar-brand" href="#">SPORTS STORE</a>
     </div>
-    <div class="panel panel-default row">
-        <div class="col-xs-3">
-            Categories go here
-        </div>
-        <div class="col-xs-8">
-            <div class="well" ng-repeat="item in data.products">
-                <h3>
-                    <strong>{{item.name}}</strong>
-                    <span class="pull-right label label-primary">
-                        {{item.price | currency}}
-                    </span>
-                </h3>
-                <span class="lead">{{item.description}}</span>
-            </div>
-        </div>
+    <div class="alert alert-danger" ng-show="data.error">
+        Error {{data.error.status}}. The products were not loaded.
+        <a href="/app.html" class="alert-link">Click here to try again.</a>
     </div>
+    <ng-include src="'Scripts/app/views/productList.html'"></ng-include>
 </body>
 </html>

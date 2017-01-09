@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "ostirala",
       "larunbata"
     ],
-    "ERANAMES": [
-      "K.a.",
-      "K.o."
-    ],
-    "ERAS": [
-      "K.a.",
-      "K.o."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "urtarrilak",
       "otsailak",
@@ -61,24 +52,6 @@ $provide.value("$locale", {
       "urr.",
       "aza.",
       "abe."
-    ],
-    "STANDALONEMONTH": [
-      "Urtarrila",
-      "Otsaila",
-      "Martxoa",
-      "Apirila",
-      "Maiatza",
-      "Ekaina",
-      "Uztaila",
-      "Abuztua",
-      "Iraila",
-      "Urria",
-      "Azaroa",
-      "Abendua"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
     ],
     "fullDate": "y('e')'ko' MMMM d, EEEE",
     "longDate": "y('e')'ko' MMMM d",
@@ -119,7 +92,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "eu",
-  "localeID": "eu",
   "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

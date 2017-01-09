@@ -1,0 +1,19 @@
+﻿<div class="panel panel-default row" ng-controller="productListCtrl" ng-hide="data.error">
+    <div class="col-xs-3">
+        <a ng-click="selectedCategory()" class="btn btn-block btn-default btn-lg">Home</a>
+        <a ng-click="selectedCategory(item)" class="btn btn-block btn-default btn-lg "
+           ng-class="getCategoryClass(item)"
+           ng-repeat="item in data.products | orderBy:'Category' | unique:'Category'">{{item}}</a>
+    </div>
+    <div class="col-xs-8" ng-hide="data.error">
+        <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn">
+            <h3>
+                <strong>{{item.Name}}</strong>
+                <span class="pull-right label label-primary">
+                    {{item.Price | currency}}
+                </span>
+            </h3>
+            <span class="lead">{{item.Description}}</span>
+        </div>
+    </div>
+</div>

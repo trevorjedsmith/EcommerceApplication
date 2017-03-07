@@ -9,6 +9,7 @@
 
     <!--Angular Scripts-->
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
 
     <!--Css-->
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -17,20 +18,45 @@
     <script>
         //this is creating a new angular module with no di 
         //set module
-        angular.module("sportsStore", ["customFilters"]);
+        angular.module("sportsStore", ["customFilters", "cart", "ngRoute"])
+        .config(function ($routeProvider) {
+
+            $routeProvider.when("/complete", {
+                templateUrl: "Scripts/app/views/thankYou.html"
+            });
+
+            $routeProvider.when("/placeorder", {
+                templateUrl:"Scripts/app/views/placeOrder.html"
+            });
+
+            $routeProvider.when("/checkout", {
+                templateUrl: "Scripts/app/views/checkoutSummary.html"
+            });
+
+            $routeProvider.when("/products", {
+                templateUrl: "Scripts/app/views/productList.html"
+            });
+
+            $routeProvider.otherwise({
+                templateUrl: "Scripts/app/views/productList.html"
+            });
+        });
     </script>
-    <script src="Scripts/app/sportsStore.js"></script>
-    <script src="Scripts/app/customFilters.js"></script>
-    <script src="Scripts/app/productListController.js"></script>
+    <script src="Scripts/app/modules/sportsStore.js"></script>
+    <script src="Scripts/app/modules/customFilters.js"></script>
+    <script src="Scripts/app/controllers/productListController.js"></script>
+    <script src="Scripts/app/modules/cart.js"></script>
+    <script src="Scripts/app/controllers/checkoutController.js"></script>
 </head>
 <body ng-controller="sportsStoreCtrl">
-    <div class="navbar navbar-default">
+    <div class="navbar navbar-inverse">
         <a class="navbar-brand" href="#">SPORTS STORE</a>
+        <cartsummary />
     </div>
     <div class="alert alert-danger" ng-show="data.error">
         Error {{data.error.status}}. The products were not loaded.
         <a href="/app.html" class="alert-link">Click here to try again.</a>
     </div>
-    <ng-include src="'Scripts/app/views/productList.html'"></ng-include>
+    <ng-view />
 </body>
 </html>

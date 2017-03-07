@@ -168,10 +168,16 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\app\customFilters.js" />
-    <Content Include="Scripts\app\productListController.js" />
-    <Content Include="Scripts\app\sportsStore.js" />
+    <Content Include="Scripts\app\controllers\checkoutController.js" />
+    <Content Include="Scripts\app\modules\cart.js" />
+    <Content Include="Scripts\app\modules\customFilters.js" />
+    <Content Include="Scripts\app\controllers\productListController.js" />
+    <Content Include="Scripts\app\modules\sportsStore.js" />
+    <Content Include="Scripts\app\views\cartSummary.html" />
+    <Content Include="Scripts\app\views\checkoutSummary.html" />
+    <Content Include="Scripts\app\views\placeOrder.html" />
     <Content Include="Scripts\app\views\productList.html" />
+    <Content Include="Scripts\app\views\thankYou.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -941,11 +947,14 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\OrdersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,5 +1,5 @@
 ﻿/// <reference path="../angular.js" />
-angular.module("sportsStore").controller("productListCtrl", function ($scope, $filter) {
+angular.module("sportsStore").controller("productListCtrl", function ($scope, $filter, cart) {
 
     var selectCategory = null;
 
@@ -15,6 +15,10 @@ angular.module("sportsStore").controller("productListCtrl", function ($scope, $f
 
     $scope.getCategoryClass = function (category) {
         return selectCategory == category ? selectedCategoryClass : "";
+    }
+
+    $scope.addProductToCart = function (product) {
+        cart.addProduct(product.Id, product.Name, product.Price);
     }
 
 })
